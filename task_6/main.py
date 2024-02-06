@@ -6,15 +6,10 @@ total_count = [int(x) for x in total]
 
 j = 0
 
-for _ in range(81):
-    for add in range(j):
-        total_count.append(8)
-    j = 0
-    for i, fish in enumerate(total_count):
-        if fish == 0:
-            j += 1
-            total_count[i] = 6
-        else:
-            total_count[i] = fish - 1
-
-print(len(total_count))
+fish = [total_count.count(i) for i in range(9)]
+for i in range(256):
+    num = fish.pop(0)
+    fish[6] += num
+    fish.append(num)
+    assert len(fish) == 9
+print(sum(fish))
