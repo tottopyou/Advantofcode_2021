@@ -9,7 +9,12 @@ y = 0
 
 for i in range(max(total)):
     for j ,price in enumerate(total):
-        cost.append(abs(price - i))
+        x = abs(price - i)
+        while x != 0:
+            y += x
+            x -= 1
+        cost.append(y)
+        y = 0
         if j == len(total)-1:
             trips[i] = sum(cost)
             cost = []
